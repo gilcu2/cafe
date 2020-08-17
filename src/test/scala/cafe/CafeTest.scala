@@ -6,7 +6,7 @@ import org.scalatest.matchers.should.Matchers
 class CafeTest extends AnyFlatSpec with Matchers {
 
 	"Cafe" should "compute the bill with liquids products" in {
-		val items = List("Cola", "Coffe")
+		val items = List("Cola", "Coffee")
 
 		val bill = Cafe.computeBill(items)
 
@@ -27,6 +27,30 @@ class CafeTest extends AnyFlatSpec with Matchers {
 		val bill = Cafe.computeBill(items)
 
 		bill should be(11.5)
+	}
+
+	"Cafe" should "compute the bill with liquids products and service charge" in {
+		val items = List("Cola", "Coffee")
+
+		val bill = Cafe.computeBillAndServiceCharge(items)
+
+		bill should be(1.5)
+	}
+
+	"Cafe" should "compute the bill with cold products and service charge" in {
+		val items = List("Cheese Sandwich", "Coffee")
+
+		val bill = Cafe.computeBillAndServiceCharge(items)
+
+		bill should be(3.3)
+	}
+
+	"Cafe" should "compute the bill with hot products and service charge" in {
+		val items = List("Steak Sandwich", "Coffee")
+
+		val bill = Cafe.computeBillAndServiceCharge(items)
+
+		bill should be(6.6)
 	}
 
 }
