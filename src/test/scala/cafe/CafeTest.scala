@@ -29,6 +29,14 @@ class CafeTest extends AnyFlatSpec with Matchers {
 		bill should be(11.5)
 	}
 
+	"Cafe" should "compute the bill without taking into account products outside the menu" in {
+		val items = List("Cola", "Coffee", "Hot dog")
+
+		val bill = Cafe.computeBill(items)
+
+		bill should be(1.5)
+	}
+
 	"Cafe" should "compute the bill with liquids products and service charge" in {
 		val items = List("Cola", "Coffee")
 

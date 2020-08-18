@@ -24,7 +24,7 @@ object Cafe {
 	}
 
 	def computeBill(items: List[String]): Double = {
-		items.map(prices(_)).sum
+		items.map(prices.getOrElse(_, 0.0)).sum
 	}
 
 }
